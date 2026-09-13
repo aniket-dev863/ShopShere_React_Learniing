@@ -190,12 +190,7 @@ const products = [
 Render:
 
 ```jsx
-products.map((product) => (
-  <ProductCard
-    key={product.id}
-    name={product.name}
-  />
-))
+products.map((product) => <ProductCard key={product.id} name={product.name} />);
 ```
 
 ## Important: `return`
@@ -213,9 +208,7 @@ products.map((product) => {
 This works because of implicit return:
 
 ```jsx
-products.map((product) => (
-  <ProductCard />
-));
+products.map((product) => <ProductCard />);
 ```
 
 Or explicitly:
@@ -233,12 +226,7 @@ products.map((product) => {
 React needs a stable `key` when rendering lists.
 
 ```jsx
-products.map((product) => (
-  <ProductCard
-    key={product.id}
-    product={product}
-  />
-))
+products.map((product) => <ProductCard key={product.id} product={product} />);
 ```
 
 The key helps React identify which list item corresponds to which data item.
@@ -282,11 +270,7 @@ Example:
 function Counter() {
   const [count, setCount] = useState(0);
 
-  return (
-    <button onClick={() => setCount(count + 1)}>
-      {count}
-    </button>
-  );
+  return <button onClick={() => setCount(count + 1)}>{count}</button>;
 }
 ```
 
@@ -421,9 +405,9 @@ Primitive values are compared by value.
 Examples:
 
 ```js
-"hello" === "hello" // true
-10 === 10           // true
-true === true       // true
+"hello" === "hello"; // true
+10 === 10; // true
+true === true; // true
 ```
 
 Objects, arrays, and functions are compared by reference.
@@ -553,7 +537,7 @@ createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </StrictMode>
+  </StrictMode>,
 );
 ```
 
@@ -599,10 +583,7 @@ React component
 For example:
 
 ```jsx
-<Route
-  path="/products"
-  element={<Products />}
-/>
+<Route path="/products" element={<Products />} />
 ```
 
 When the browser URL is:
@@ -777,10 +758,7 @@ A route can contain a dynamic URL segment.
 Example:
 
 ```jsx
-<Route
-  path="/products/:productId"
-  element={<ProductDetails />}
-/>
+<Route path="/products/:productId" element={<ProductDetails />} />
 ```
 
 The `:productId` part is dynamic.
@@ -832,7 +810,7 @@ If the URL is:
 then:
 
 ```jsx
-productId
+productId;
 ```
 
 will contain:
@@ -848,13 +826,13 @@ Important:
 So:
 
 ```js
-productId === "42"
+productId === "42";
 ```
 
 not:
 
 ```js
-productId === 42
+productId === 42;
 ```
 
 If an API requires a number, convert it explicitly when necessary.
@@ -1379,9 +1357,7 @@ items.map((item) => {
 Correct:
 
 ```jsx
-items.map((item) => (
-  <Card />
-));
+items.map((item) => <Card />);
 ```
 
 or:
@@ -1744,18 +1720,13 @@ useEffect(() => {
 ## Route
 
 ```jsx
-<Route
-  path="/products"
-  element={<Products />}
-/>
+<Route path="/products" element={<Products />} />
 ```
 
 ## Link
 
 ```jsx
-<Link to="/products">
-  Products
-</Link>
+<Link to="/products">Products</Link>
 ```
 
 ## Layout
@@ -1774,10 +1745,7 @@ function MainLayout() {
 ## Dynamic Route
 
 ```jsx
-<Route
-  path="/products/:productId"
-  element={<ProductDetails />}
-/>
+<Route path="/products/:productId" element={<ProductDetails />} />
 ```
 
 ## Dynamic Parameter
