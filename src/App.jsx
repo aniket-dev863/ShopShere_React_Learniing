@@ -5,6 +5,7 @@ import Products from "./Pages/Products";
 import MainLayout from "./Layouts/MainLayout";
 import ProductDetails from "./Components/ProductDetails";
 import Login from "./Pages/Login";
+import Logout from "./Pages/Logout";
 const App = () => {
   return (
     <>
@@ -14,6 +15,7 @@ const App = () => {
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
         </Route>
       </Routes>
     </>

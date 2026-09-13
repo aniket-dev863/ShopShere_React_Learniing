@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import AuthContext from "../Context/AuthContext";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const { setToken } = useContext(AuthContext);
   const login = async () => {
     const response = await fetch("https://dummyjson.com/auth/login", {
       method: "POST",
@@ -15,12 +17,10 @@ function Login() {
     });
     const data = await response.json();
     console.log(data);
+    setToken(data.accessToken);
     localStorage.setItem("AccessToken", data.accessToken);
   };
-  useEffect(() => {
-    const token = localStorage.getItem("AccessToken");
-    console.log(`Here is the Access Token Present ${token}`);
-  }, []);
+
   return (
     <>
       <input
