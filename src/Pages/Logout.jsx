@@ -1,5 +1,6 @@
 import React from "react";
 import { useContext } from "react";
+import "../App.css";
 import AuthContext from "../Context/AuthContext";
 function Logout() {
   const { setToken } = useContext(AuthContext);
@@ -9,7 +10,7 @@ function Logout() {
   };
   return (
     <>
-      <button type="button" onClick={logout}>
+      <button type="button" className="logout-button" onClick={logout}>
         Logout
       </button>
     </>

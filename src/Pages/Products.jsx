@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import "../App.css";
+import ProductCard from "../Components/Productcard";
 function Products() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -41,26 +42,12 @@ function Products() {
   }
 
   return (
-    <div className="products-page">
-      <h1 className="products-page__title">Products</h1>
+    <div className="page-container products-page">
+      <h1 className="page-title">Products</h1>
 
-      <p className="products-page__count">Product Count: {products.length}</p>
-
-      <div className="products-page__grid">
+      <div className="products-grid">
         {products.map((product) => (
-          <div className="product-card" key={product.id}>
-            <img
-              className="product-card__image"
-              src={product.thumbnail}
-              alt={product.title}
-            />
-
-            <Link to={`/products/${product.id}`}>
-              <h2 className="product-card__title">{product.title}</h2>
-            </Link>
-
-            <p className="product-card__price">${product.price}</p>
-          </div>
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
     </div>
