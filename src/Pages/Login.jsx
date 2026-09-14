@@ -1,11 +1,12 @@
 import React, { useState, useContext } from "react";
 import AuthContext from "../Context/AuthContext";
 import "../App.css";
+import { Navigate } from "react-router-dom";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const { setToken } = useContext(AuthContext);
+  const { token, setToken } = useContext(AuthContext);
 
   const login = async () => {
     const response = await fetch("https://dummyjson.com/auth/login", {
@@ -27,6 +28,10 @@ function Login() {
 
     localStorage.setItem("AccessToken", data.accessToken);
   };
+
+  if (token !== null) {
+    return <Navigate to="/" replace />;
+  }
 
   return (
     <div className="login-page">

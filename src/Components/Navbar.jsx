@@ -28,6 +28,13 @@ function Navbar() {
           ) : (
             <Logout />
           )}
+          {token !== null ? (
+            <Link to="/account" className="navbar-account">
+              Account
+            </Link>
+          ) : (
+            <>☺️</>
+          )}
         </div>
       </div>
     </nav>

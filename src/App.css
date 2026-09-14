@@ -119,7 +119,14 @@ button {
 .logout-button:hover {
   color: #dc2626;
 }
-
+.navbar-account {
+  background-color: #2563eb;
+  color: white;
+  padding: 9px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
 .product-card {
   background-color: #ffffff;
   border: 1px solid #e5e7eb;

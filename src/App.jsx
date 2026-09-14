@@ -6,6 +6,8 @@ import MainLayout from "./Layouts/MainLayout";
 import ProductDetails from "./Components/ProductDetails";
 import Login from "./Pages/Login";
 import Logout from "./Pages/Logout";
+import Account from "./Pages/Account";
+import ProtectedRoute from "./Components/ProtectedRoute";
 const App = () => {
   return (
     <>
@@ -16,6 +18,14 @@ const App = () => {
           <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
+          <Route
+            path="/account"
+            element={
+              <ProtectedRoute>
+                <Account />
+              </ProtectedRoute>
+            }
+          />
         </Route>
       </Routes>
     </>
